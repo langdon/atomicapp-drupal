@@ -1,0 +1,10 @@
+{
+    "specversion": "v1-alpha", 
+    "name": "Mariadb App",
+    "id": "mariadb-app",
+    "appversion": "0.0.1",
+    "description": "Mariadb Application to be used by Wordpress",
+    "graph": [
+        "mariadb-app"
+    ]
+}

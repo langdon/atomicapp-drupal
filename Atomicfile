@@ -1,0 +1,37 @@
+---
+specversion: 0.0.1-alpha
+id: Atomicapp-drupal
+metadata:
+  name: Drupal
+  appversion: x.y.z
+  description: This is a Drupal Atomicapp
+  license:
+    name: GNU AFFERO GENERAL PUBLIC LICENSE, Version 3
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+graph:
+  drupal:
+    params:
+      sitename: 'langdons drupal portal'
+    artifacts:
+      atomichost:
+        - file://pod.json.tmpl
+        - file://service.json.tmpl
+    requirements: 
+      persistantVolume:
+        name: "drupal-data"
+        accessMode: "ReadWrite" 
+        size: 1
+  mariadb:
+    admin_password: isempty
+    drupal_database: drupal
+    artifacts:
+      atomichost:
+        - file://pod.json.tmpl
+        - file://service.json.tmpl
+    requirements:
+      persistantVolume:
+        name: "mariadb-data"
+        accessMode: "ReadWrite" 
+        size: 4
+
+
