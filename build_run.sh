@@ -24,6 +24,7 @@ cd $BASE_DIR
 cd graph/mariadb-app
 #docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
 docker build -t $USERNAME/mariadb-app --file="docker-artifacts/Dockerfile" .
+#docker build --no-cache -t $USERNAME/mariadb-app --file="docker-artifacts/Dockerfile" .
 docker tag -f $USERNAME/mariadb-app $DOCKER_REGISTRY/mariadb-app
 docker push $DOCKER_REGISTRY/mariadb-app
 #docker rmi $USERNAME/mariadb-app
