@@ -13,11 +13,20 @@ fi
 BASE_DIR=`pwd`
 cd mariadb-app/mariadb
 #docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
-docker build -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
-docker tag $USERNAME/maria $DOCKER_REGISTRY/maria
-docker push $DOCKER_REGISTRY/maria
+docker build -t $USERNAME/mariadb --file="docker-artifacts/Dockerfile" .
+docker tag $USERNAME/mariadb $DOCKER_REGISTRY/mariadb
+docker push $DOCKER_REGISTRY/mariadb
 #docker rmi $USERNAME/maria
 cd $BASE_DIR
+
+cd mariadb-app
+#docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
+docker build -t $USERNAME/mariadb-app --file="docker-artifacts/Dockerfile" .
+docker tag $USERNAME/mariadb-app $DOCKER_REGISTRY/mariadb-app
+docker push $DOCKER_REGISTRY/mariadb-app
+#docker rmi $USERNAME/mariadb-app
+cd $BASE_DIR
+
 
 #echo docker build --rm -t $USERNAME/atomicapp-run .
 #docker build --rm -t $USERNAME/atomicapp-run .

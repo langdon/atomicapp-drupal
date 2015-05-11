@@ -1,6 +1,6 @@
-FROM vpavlin/atomicapp-run
+FROM scratch
 
-MAINTAINER Vaclav Pavlin <vpavlin@redhat.com>
+MAINTAINER langdon <langdon@fedoraproject.org>
 
-ADD Atomicfile Dockerfile graph params.conf /application-entity/
+ADD Atomicfile k8s /application-entity/
 
