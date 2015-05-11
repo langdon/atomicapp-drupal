@@ -11,8 +11,12 @@
           "image": "localhost:5000/mariadb",
           "env": [
             {
-              "name": "MYSQL_ROOT_PASSWORD",
-              "value": "yourpassword"
+              "name": "USER",
+              "value": "$db_user",
+              "name": "PASS",
+              "value": "$db_pass",
+              "name": "NAME",
+              "value": "$db_name"
             }
           ],
           "cpu": 1,

@@ -14,7 +14,7 @@ BASE_DIR=`pwd`
 #build mariadb docker container
 cd graph/mariadb-app/graph/mariadb
 #docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
-docker build -t $USERNAME/mariadb --file="docker-artifacts/Dockerfile" .
+docker build -t $USERNAME/mariadb --file="Dockerfile" .
 docker tag -f $USERNAME/mariadb $DOCKER_REGISTRY/mariadb
 docker push $DOCKER_REGISTRY/mariadb
 #docker rmi $USERNAME/maria
