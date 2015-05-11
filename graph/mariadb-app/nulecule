@@ -17,6 +17,9 @@ graph:
         description: Database password
       db_name:
         description: database name
+      image:
+        description: which mariadb image to use (including registry if not docker hub)
+        default: fedora/mariadb
     artifacts:
       #i feel like i should be able to specify the dockerimage for maria here,
       #but I don't it is in the kube file
