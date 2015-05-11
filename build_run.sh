@@ -30,6 +30,14 @@ docker push $DOCKER_REGISTRY/mariadb-app
 #docker rmi $USERNAME/mariadb-app
 cd $BASE_DIR
 
+#build drupal docker container
+cd graph/drupal
+#docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
+docker build -t $USERNAME/drupal --file="Dockerfile" .
+docker tag -f $USERNAME/drupal $DOCKER_REGISTRY/drupal
+docker push $DOCKER_REGISTRY/drupal
+#docker rmi $USERNAME/maria
+cd $BASE_DIR
 
 #echo docker build --rm -t $USERNAME/atomicapp-run .
 #docker build --rm -t $USERNAME/atomicapp-run .
