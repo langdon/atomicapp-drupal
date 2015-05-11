@@ -1,28 +1,30 @@
 #!/bin/bash
 
 if [ -z "$USERNAME" ]; then
-    echo "setting USERNAME to " `whoami` 
+    echo "setting USERNAME to " `whoami`
     USERNAME=`whoami`
 fi
 
 if [ -z "$DOCKER_REGISTRY" ]; then
-    echo "setting DOCKER_REGISTRY to localhost:5000" 
+    echo "setting DOCKER_REGISTRY to localhost:5000"
     DOCKER_REGISTRY=localhost:5000
 fi
 
 BASE_DIR=`pwd`
-cd mariadb-app/mariadb
+#build mariadb docker container
+cd graph/mariadb-app/graph/mariadb
 #docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
 docker build -t $USERNAME/mariadb --file="docker-artifacts/Dockerfile" .
-docker tag $USERNAME/mariadb $DOCKER_REGISTRY/mariadb
+docker tag -f $USERNAME/mariadb $DOCKER_REGISTRY/mariadb
 docker push $DOCKER_REGISTRY/mariadb
 #docker rmi $USERNAME/maria
 cd $BASE_DIR
 
-cd mariadb-app
+#build mariadb-app docker container
+cd graph/mariadb-app
 #docker build --rm -t $USERNAME/maria --file="docker-artifacts/Dockerfile" .
 docker build -t $USERNAME/mariadb-app --file="docker-artifacts/Dockerfile" .
-docker tag $USERNAME/mariadb-app $DOCKER_REGISTRY/mariadb-app
+docker tag -f $USERNAME/mariadb-app $DOCKER_REGISTRY/mariadb-app
 docker push $DOCKER_REGISTRY/mariadb-app
 #docker rmi $USERNAME/mariadb-app
 cd $BASE_DIR

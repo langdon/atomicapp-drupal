@@ -7,15 +7,15 @@
       "id": "mariadb",
       "containers": [
         {
-          "name": "mysql",
-          "image": "mariadb",
+          "name": "mariadb",
+          "image": "localhost:5000/mariadb",
           "env": [
             {
               "name": "MYSQL_ROOT_PASSWORD",
               "value": "yourpassword"
             }
           ],
-          "cpu": 100,
+          "cpu": 1,
           "ports": [
             {
               "containerPort": 3306
@@ -30,4 +30,3 @@
   },
   "kind": "Pod"
 }
-
