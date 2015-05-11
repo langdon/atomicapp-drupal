@@ -10,14 +10,9 @@
           "name": "mariadb",
           "image": "$image",
           "env": [
-            {
-              "name": "USER",
-              "value": "$db_user",
-              "name": "PASS",
-              "value": "$db_pass",
-              "name": "NAME",
-              "value": "$db_name"
-            }
+            {"name": "USER", "value": "$db_user"},
+            {"name": "PASS", "value": "$db_pass"},
+            {"name": "NAME", "value": "$db_name"}
           ],
           "cpu": 1,
           "ports": [
