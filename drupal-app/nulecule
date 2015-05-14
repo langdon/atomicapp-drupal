@@ -1,0 +1,52 @@
+---
+specversion: 0.0.1-alpha
+id: drupal-app
+metadata:
+  name: Drupal App
+  appversion: 0.0.1
+  description: This is a Drupal Atomicapp
+  license:
+    name: GNU AFFERO GENERAL PUBLIC LICENSE, Version 3
+    url: https://www.gnu.org/licenses/agpl-3.0.html
+graph:
+  drupal:
+    params:
+      db_user:
+        description: database user
+        default: root
+      db_pass:
+        description: Database password
+        default: password
+      db_name:
+        description: database name
+        default: drupal_db
+      sitename:
+        description: drupal sitename
+        default: drupal_site
+      drupal_admin_pass:
+        description: drupal admin password
+        default: admin_pass
+      image:
+        description: which drupal image to use
+        default: localhost:5000/drupal
+    artifacts:
+      kubernetes:
+        - file://graph/k8s/drupal-pod.json
+        - file://graph/k8s/drupal-service.json
+      docker-compose:
+        - file://graph/docker-compose/drupal.yml
+  mariadb-app:
+    source: docker://localhost:5000/mariadb-app
+    params:
+      db_user:
+        description: database user
+        default: not_drupal_user
+      db_pass:
+        description: Database password
+        default: password
+      db_name:
+        description: database name
+        default: not_drupal_db
+      image:
+        description: which mariadb image to use (including registry if not docker hub)
+        default: fedora/mariadb

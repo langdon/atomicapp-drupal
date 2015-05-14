@@ -1,0 +1,13 @@
+{
+  "kind": "Service",
+  "apiVersion": "v1beta1",
+  "id": "frontend",
+  "port": 80,
+  "selector": {
+    "name": "drupal"
+  },
+  "containerPort": 80,
+  "labels": {
+    "name": "drupal"
+  }
+}

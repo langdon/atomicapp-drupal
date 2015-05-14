@@ -1,0 +1,32 @@
+{
+  "apiVersion": "v1beta1",
+  "id": "drupal",
+  "desiredState": {
+    "manifest": {
+      "version": "v1beta1",
+      "id": "drupal",
+      "containers": [
+        {
+          "name": "drupal",
+          "image": "$image",
+          "env": [
+            {"name": "DB_USER", "value": "$db_user"},
+            {"name": "DB_PASS", "value": "$db_pass"},
+            {"name": "DB_NAME", "value": "$db_name"},
+            {"name": "DRUPAL_ADMIN_PASS", "value": "$drupal_admin_pass"}
+          ],
+          "cpu": 1,
+          "ports": [
+            {
+              "containerPort": 80
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "labels": {
+    "name": "drupal"
+  },
+  "kind": "Pod"
+}
