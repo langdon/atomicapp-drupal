@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Note: you may need to add your docker-registry to /etc/sysconfig/docker "
+echo "(on CentOS/RHEL/Fedora) for this to push to the registries correctly"
 
 if [ -z "$USERNAME" ]; then
     echo "setting USERNAME to " `whoami`
@@ -9,6 +11,8 @@ if [ -z "$DOCKER_REGISTRY" ]; then
     echo "setting DOCKER_REGISTRY to localhost:5000"
     DOCKER_REGISTRY=localhost:5000
 fi
+echo "using USERNAME=$USERNAME"
+echo "using DOCKER_REGISTRY=$DOCKER_REGISTRY"
 
 BASE_DIR=`pwd`
 echo "building mariadb"
