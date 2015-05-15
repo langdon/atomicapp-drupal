@@ -4,7 +4,6 @@ RUN yum -y update && yum clean all
 RUN yum -y install mariadb-server pwgen psmisc net-tools hostname && \
     yum clean all
 
-RUN echo `date`
 ADD scripts /scripts
 RUN chmod 755 /scripts/*
 

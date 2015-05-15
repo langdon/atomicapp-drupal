@@ -1,6 +1,6 @@
 ---
 specversion: 0.0.1-alpha
-id: drupal-app
+id: drupal-atomicapp
 metadata:
   name: Drupal App
   appversion: 0.0.1
@@ -28,15 +28,15 @@ graph:
         default: admin_pass
       image:
         description: which drupal image to use
-        default: localhost:5000/drupal
+        default: langdon/drupal:dev
     artifacts:
       kubernetes:
         - file://graph/k8s/drupal-pod.json
         - file://graph/k8s/drupal-service.json
       docker-compose:
         - file://graph/docker-compose/drupal.yml
-  mariadb-app:
-    source: docker://localhost:5000/mariadb-app
+  mariadb-atomicapp:
+    source: docker://langdon/mariadb-atomicapp:dev
     params:
       db_user:
         description: database user
@@ -46,7 +46,7 @@ graph:
         default: password
       db_name:
         description: database name
-        default: not_drupal_db
       image:
+        default: not_drupal_db
         description: which mariadb image to use (including registry if not docker hub)
-        default: fedora/mariadb
+        default: langdon/mariadb:dev

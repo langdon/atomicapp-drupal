@@ -57,7 +57,6 @@ ADD php-conf.d/ $PHP_INI_DIR/conf.d/
 WORKDIR html
 ADD sites/ sites/
 
-RUN echo `date`
 # Add README.md, entrypoint-script and scripts-folder
 ADD entrypoint.sh README.md  /
 ADD /scripts/ /scripts/

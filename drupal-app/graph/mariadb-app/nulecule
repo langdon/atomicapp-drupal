@@ -1,6 +1,6 @@
 ---
 specversion: 0.0.1-alpha
-id: mariadb-app
+id: mariadb-atomicapp
 metadata:
   name: MariaDB App
   appversion: 0.0.1
@@ -9,7 +9,7 @@ metadata:
     name: GNU AFFERO GENERAL PUBLIC LICENSE, Version 3
     url: https://www.gnu.org/licenses/agpl-3.0.html
 graph:
-  mariadb-app:
+  mariadb-atomicapp:
     params:
       db_user:
         description: database user
@@ -19,13 +19,8 @@ graph:
         description: database name
       image:
         description: which mariadb image to use (including registry if not docker hub)
-        default: centos/mariadb
+        default: langdon/mariadb:dev
     artifacts:
-      #i feel like i should be able to specify the dockerimage for maria here,
-      #but I don't it is in the kube file
-      #
-      # also, these will be ultimately ignored in favor of ones in the "caller"
-      # this also seems weird
       kubernetes:
         - file://graph/k8s/mariadb-pod.json
         - file://graph/k8s/mariadb-service.json
